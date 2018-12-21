@@ -1,3 +1,2 @@
-﻿  SDLTest.cpp
-c:\users\henrikasus\source\repos\sdltest\sdltest\sdltest.cpp(14): warning C4101: 'event': unreferenced local variable
-  SDLTest.vcxproj -> C:\Users\HenrikAsus\source\repos\SDLTest\Debug\SDLTest.exe
+﻿  Image.cpp
+  SDLTest.vcxproj -> C:\Users\HenrikAsus\Documents\imagefilteringproject\Debug\SDLTest.exe
