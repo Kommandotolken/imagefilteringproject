@@ -7,12 +7,32 @@
 #include "pch.h"
 #include <iostream>
 #include "Image.h"
+#include <string>
+#include <fstream>
 
 int main(int argc, char ** argv)
 {
+	//Check if too few arguments
+	if (argc < 1)
+		std::cout << "Too few arguments,you probably forgot to enter a filename";
+
+	char* fileName = new char[30];
+	strcpy(fileName, argv[1]);
+	std::string outputFile = "outputFile.png";
 	Image img;
-	img.Initialize();
 	
+	img.Initialize();
+	img.loadImage(fileName);
+	img.Invert();
+	for (int i = 0; i < 5; i++)
+	{
+		img.blur();
+	}
+	img.displayImage();
+	img.Save();
+	img.Clear();
+
+
 	return 0;
 }
 
