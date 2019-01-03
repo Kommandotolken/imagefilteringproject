@@ -7,13 +7,13 @@
 #include <SDL_image.h>
 #include <iostream>
 class Filter {
-private:
-
+protected:
+	std::string filterName;
 
 public:
-	Filter();
-	SDL_Surface * Blur(SDL_Surface * surface, int blur_extent);
-	SDL_Surface * Invert(SDL_Surface * surface);
+	virtual SDL_Surface * Process(SDL_Surface* surface) = 0;
+	virtual SDL_Surface * Process(SDL_Surface * surface, int numb) = 0;
+	
 };
 
 

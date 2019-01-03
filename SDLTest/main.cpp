@@ -5,14 +5,6 @@
 /This program uses the SDL library to process an image.
 */
 
-/*Gör ett program som applicerar filter på en PNG-fil.(Filen kommer att vara tillgänglig senare).
-Programmet ska ta bildens filnamn som argument, en sträng som bestämmer filtret, och visa ett fönster med bilden samt spara en kopia på disk. Koden ska vara objektorienterad och det ska vara lätt att lägga till nya filter som en ny klass.
-- Läs in bitmap bild
-- Applicera inställningar (ex monokrom-filter).
-- Gör modifierad image.
-- Visa image //Done
-- Exportera filtrerad image till ny image fil. //Done
-*/
 #include "pch.h"
 #include <iostream>
 #include "Image.h"
@@ -21,6 +13,7 @@ Programmet ska ta bildens filnamn som argument, en sträng som bestämmer filtret,
 
 int main(int argc, char ** argv)
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	//Check if too few arguments
 	if (argc < 2)
 		std::cout << "Too few arguments,you must enter a filename and a filter.";
@@ -41,7 +34,8 @@ int main(int argc, char ** argv)
 	img.Save();
 	img.Clear();
 
-
+	delete[] fileName;
+	delete[] filterName;
 	return 0;
 }
 

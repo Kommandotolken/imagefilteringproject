@@ -9,6 +9,8 @@
 #include <fstream>
 #include <cmath>
 #include "Filter.h"
+#include "Blur.h"
+#include "Invert.h"
 class Image {
 private:
 	int window_width = 800;
@@ -16,7 +18,7 @@ private:
 	int blur_extent = 1;
 	std::string outputName = "outputFile.png";
 	std::string filterName = "";
-	Filter filter;
+	Filter* filter;
 	SDL_Event windowEvent;
 
 	SDL_Surface *windowSurface = NULL;
@@ -26,14 +28,14 @@ private:
 	
 	
 public:
-
+	~Image() {
+		delete filter;
+	}
 	bool Initialize();
 	void applyFilter(std::string filterName);
 	void displayImage();
-	//void blur();
 	SDL_Surface* loadImage(char* fileName);
 	void Save();
-	//void Invert();
 	void Clear();
 };
 #endif IMAGE_H
